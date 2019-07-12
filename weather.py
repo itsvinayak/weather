@@ -6,6 +6,9 @@ import requests
 HEIGHT=400
 WIDTH=800
 
+
+#############################function#####################################################################
+
 def weather(city):
     key='48a90ac42caa09f90dcaeee4096b9e53'
     source=requests.get('http://api.openweathermap.org/data/2.5/weather?q=' + city +'&appid='+key)
@@ -19,12 +22,31 @@ def weather(city):
     show['text']=a+b+c+d
 
 
+############################################################################################################
+
 root=Tk()
 
 
 root.title("weather")
 root.configure(background="black")
 
+
+
+####################menu##################################
+
+m = Menu(root)
+menubar = Menu(m, tearoff=0)
+menubar.add_command(label="Home")
+menubar.add_command(label="about")
+menubar.add_command(label="exit")
+
+root.config(menu=menubar)
+
+
+#########################################################
+
+
+################################window 1###################################
 
 canvas = Canvas(root,height=HEIGHT,width=WIDTH).pack()
 
@@ -42,6 +64,8 @@ lower_frame=Frame(root,bg="black",bd=3)
 lower_frame.place(relx=0.5,rely=0.3,relwidth=0.75,relheight=0.65,anchor="n")
 show=Label(lower_frame,bg="#f2f2f2",font=40,)
 show.place(relx=0,rely=0,relwidth=1,relheight=1)
+
+#####################################################################
 
 
 root.mainloop()
